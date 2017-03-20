@@ -1,14 +1,13 @@
 $(document).ready(() => {
 
-
   Handlebars.getTemplate = function(name) {
-  	console.log("templates function working");
+
   	if (Handlebars.templates === undefined || Handlebars.templates[name] === undefined) {
-  		console.log("template undefined");
+
   		$.ajax({
   			url : './templates/' + name + '.hbs',
   			success : function(data) {
-  				console.log("success compiling template");
+  				// console.log("success compiling template");
   				if (Handlebars.templates === undefined) {
   					Handlebars.templates = {};
   				}
@@ -25,7 +24,8 @@ $(document).ready(() => {
   var header = Handlebars.getTemplate("header");
   var footer = Handlebars.getTemplate("footer");
 
-
+  $("#header").append(header);
+  $("#footer").append(footer);
 
 
 
