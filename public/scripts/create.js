@@ -16,9 +16,9 @@ $(document).ready(() => {
   $('#end').timepicker();
 
   function createTimesForm() {
-    $('body').addClass('containCenterColumn')
-    $('body').append($('<div>', {id: 'createPageMain'}))
-    $('body').append($('<div>', {class: 'createInputs containCenterColumn', id: 'inputForm'}))
+    $('#main').addClass('containCenterColumn')
+    $('#main').append($('<div>', {id: 'createPageMain'}))
+    $('#main').append($('<div>', {class: 'createInputs containCenterColumn', id: 'inputForm'}))
     $('#createPageMain').append($('<button>', {name: 'createTimesTab', id: 'timesToggle'}).text('Times'))
     $('#createPageMain').append($('<button>', {name: 'createInvitesTab', id: 'invitesToggle'}).text('People'))
     $('#createPageMain').append($('<button>', {name: 'createDescriptionTab', id: 'descriptionToggle'}).text('Description'))
