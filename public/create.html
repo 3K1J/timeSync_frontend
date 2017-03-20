@@ -6,42 +6,46 @@
 
     <title>TimeSync</title>
 
+    <link href="./styles/main.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.min.css">
     <link href="./styles/main.css" rel="stylesheet">
+
+
+
   </head>
-  <body>
+  <body class="containCenterColumn">
 
-    <div id="header"></div>
+      <div id="header"></div>
 
-    <div class="createBody" id="createPageMain">
-      <div class="tabContainer">
-        <button type="button" name="createTimesTab">Times</button>
-        <button type="button" name="createInvitesButton">People</button>
+      <!-- <div class="createBody" id="createPageMain">
+        <div class="tabContainer">
+          <button type="button" name="createTimesTab">Times</button>
+          <button type="button" name="createInvitesButton">People</button>
+        </div>
       </div>
-      <div class="createTimes">
-        <input type="date" class="datepicker">Choose a Date</input>
-      </div>
-      <form action="#">
-        <p class="range-field">
-          <input type="range" id="test5" min="0" max="100" />
-        </p>
-      </form>
-      <form action="#">
-        <p class="range-field">
-          <input type="range" id="test5" min="0" max="100" />
-        </p>
-      </form>
-    </div>
 
-    <div id="footer"></div>
+      <div class="createInputs containCenterColumn">
+        <input type="date" class="datepicker" placeholder="Please choose a Date">
+        <input type="text" name="startTime" value="" id="start" placeholder="Please choose a Start Time">
+        <input type="text" name="endTime" value="" id="end" placeholder="Please choose an End Time">
+        <button type="button" name="button">ADD</button>
+      </div> -->
+
+
+
+
+
+
+      <div id="footer"></div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" charset="utf-8"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.1.2/handlebars.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.min.js" charset="utf-8"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.1.2/handlebars.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
   <script src="./scripts/templates.js"></script>
   <script src="./scripts/main.js"></script>

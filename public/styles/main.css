@@ -1,0 +1,12 @@
+.createInputs {
+  width: 80%;
+  height: 10%;
+  border: 2px solid red;
+}
+
+.containCenterColumn {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
