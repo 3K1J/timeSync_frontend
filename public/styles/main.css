@@ -1,3 +1,4 @@
+
 .createInputs {
   width: 100%;
   height: 10%;
@@ -92,6 +93,7 @@
   width: 25%;
 }
 
+
 /*
 
 Colors
@@ -124,20 +126,22 @@ Secondary: #009688 teal
 ------------------------
 */
 
+
 body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
 }
 
-/*main {
+main {
   flex: 1 0 auto;
-}*/
+}
+
+
 
 .profile-img {
   padding: 10px;
-}
-
+=======
 #title {
   padding-left: 10px;
 
@@ -183,4 +187,10 @@ body {
     padding-left: auto;
     padding-right: auto;
   }
+
+}
+
+
+.navbar-material .nav-wrapper .brand-logo img {
+    height: 70px;
 }
