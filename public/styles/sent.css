@@ -1,0 +1,52 @@
+.greeting {
+  color: darkgrey;
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 14pt;
+}
+
+.hero {
+  font-size: 20pt;
+}
+
+.voteContainerWhole {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 90%;
+}
+
+.voteContainer {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 7px;
+  border-bottom: 3px solid darkgrey;
+}
+
+.vote {
+  color: white;
+  text-align: center;
+  background: none;
+}
+
+.redColor {
+  background-color: tomato;
+}
+
+.greenColor {
+  background-color: green;
+}
+
+.sendBackButton {
+  margin-top: 20px;
+  height: 40px;
+  border: none;
+  background: green;
+  color: white;
+  width: 100vh;
+  font-size: 14pt;
+}
+
+.sendDate {
+  font-size: 15pt;
+}
