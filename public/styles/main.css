@@ -1,4 +1,3 @@
-
 .createInputs {
   width: 100%;
   height: 10%;
@@ -137,4 +136,71 @@ body {
 
 .profile-img {
   padding: 10px;
+}
+
+#title {
+  padding-left: 10px;
+
+}
+
+
+.createInputs {
+  width: 80%;
+  height: 10%;
+  border: 2px solid red;
+}
+
+.containCenterColumn {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slack-btn {
+  margin-top: 10px;
+  padding: 0px;
+  height: 80px;
+  border-radius:13px;
+  min-height: 66px;
+  padding-left: auto;
+  padding-right: auto;
+}
+
+.slack-btn:hover {
+    box-shadow: 0 3px 7px 0 rgba(0,0,0,0.18), 0 1px 10px 0 rgba(0,0,0,0.12), 0 3px 1px -1px rgba(0,0,0,0.6);
+}
+
+.landing-bg {
+  background-image: url("/images/circles.jpg");
+  background-color: #fff;
+}
+
+.landing-main {
+  margin-top: auto;
+  max-height:1000px;
+}
+
+.btn-img {
+  margin-top: 0px;
+
+}
+
+
+@media screen and (max-width: 480px) {
+  .slack-btn {
+    margin-top: 10px;
+    padding: 0px;
+    height: 58px;
+    border-radius:13px;
+    min-height: 58px;
+    padding-left: auto;
+    padding-right: auto;
+  }
+}
+
+@media screen and (min-width: 480px) {
+  body {
+    background: darkgreen;
+  }
 }
