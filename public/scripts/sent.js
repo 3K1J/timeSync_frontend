@@ -6,6 +6,7 @@ $(document).ready(() => {
     $('#sentMain').append($('<div>', {class: 'greeting', id: 'greeting'}).text('USER has asked for you to outline your availability across the below times/dates.'))
     $('#sentMain').append($('<div>', {class: 'greeting hero', id: 'title'}).text('Event Title'))
     $('#sentMain').append($('<div>', {class: 'greeting', id: 'desctiption'}).text('Event Description'))
+    $('#sentMain').append($('<select  >', {class: 'greeting', id: 'desctiption'}).text('Event Description'))
     $('#sentMain').append($('<div>', {class: 'voteContainerWhole', id: 'votes'}))
     counter = 1
     for (i = 1; i < 8; i++) {
