@@ -13,37 +13,20 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
 
     <link href="./node_modules/materialize-clockpicker/dist/css/materialize.clockpicker.css" rel="stylesheet">
-    <link href="./styles/landing.css" rel="stylesheet">
     <link href="./styles/main.css" rel="stylesheet">
   </head>
-  <body class="landing-bg responsive-img">
+  <body>
 
+    <div id="header"></div>
 
-
-
-
-  <div class="container landing-main">
-    <div class="row">
-      <div class="col s12 m10 l10 offset-m1 offset-l1">
-        <div class="row">
-          <div class="col s12 m8 l8 offset-m2 offset-l2">
-            <img class="responsive-img main-logo" src="/images/main-logo.png"/>
-          </div>
-        </div>
+    <main>
+      <div class="input-field col s12">
+        <label for="timepicker">Time</label>
+        <input id="timepicker" class="timepicker" type="time">
       </div>
-    </div>
-    <div class="row">
-      <div class="col s12 m10 l10 offset-m1 offset-l1">
-        <div class="row">
-          <div class="col s12 m6 l6 offset-m3 offset-l3">
-            <a class="waves-effect waves-light btn slack-btn"><img class="responsive-img btn-img" src="https://platform.slack-edge.com/img/sign_in_with_slack@2x.png"/></a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
+    </main>
+    
+    <div id="footer"></div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" charset="utf-8"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.1.2/handlebars.min.js"></script>
