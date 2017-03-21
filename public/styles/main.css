@@ -35,7 +35,7 @@
 #deleteButton {
   height: 100%;
   width: 5%;
-  background-color: red;
+  background-color: tomato;
   color: white;
   border: none;
   outline: none;
@@ -44,7 +44,7 @@
 #invDeleteButton {
   height: 100%;
   width: 5%;
-  background-color: red;
+  background-color: tomato;
   color: white;
   border: none;
   outline: none;
@@ -141,20 +141,6 @@ body {
 #title {
   padding-left: 10px;
 
-}
-
-
-.createInputs {
-  width: 80%;
-  height: 10%;
-  border: 2px solid red;
-}
-
-.containCenterColumn {
-  flex-direction: column;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .slack-btn {
