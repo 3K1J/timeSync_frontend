@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "auth0-lock": "^10.13.0",
     "hbs": "^4.0.1",
     "materialize-clockpicker": "^1.0.1"
   },
