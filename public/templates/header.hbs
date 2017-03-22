@@ -14,3 +14,47 @@
     </ul>
   </div>
 </nav>
+
+<script>
+
+window.addEventListener('load', function() {
+
+  var btn_logout = document.getElementById('btn-logout');
+
+  btn_logout.addEventListener('click', function() {
+    console.log("something");
+    logout();
+  });
+
+  //retrieve the profile:
+  var retrieve_profile = function() {
+
+    var access_token = localStorage.getItem('access_token');
+    if (access_token) {
+      lock.getUserInfo(access_token, function (err, profile) {
+        if (err) {
+          return alert('There was an error getting the profile: ' + err.message);
+        }
+        // Display user information
+        show_profile_info(profile)
+      })
+    }
+  }
+
+  var show_profile_info = function(profile) {
+    var avatar = document.getElementById('avatar');
+    document.getElementById('nickname').textContent = profile.nickname;
+    avatar.src = profile.picture;
+    avatar.style.display = "block";
+  };
+
+  var logout = function() {
+    localStorage.removeItem('access_token');
+    window.location.href = "/";
+  };
+
+  retrieve_profile()
+
+});
+
+</script>
