@@ -16,7 +16,7 @@ window.addEventListener('load', function() {
     }
   };
 
-  var lock = new Auth0Lock(AUTH0_CLIENT_ID, AUTH0_DOMAIN);
+  var lock = new Auth0Lock(AUTH0_CLIENT_ID, AUTH0_DOMAIN, options);
 
   // buttons
   var btn_login = document.getElementById('btn-login');
