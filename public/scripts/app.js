@@ -1,9 +1,20 @@
 window.addEventListener('load', function() {
 
 
-  // var options = {
-  //
-  // }
+  var options = {
+    allowedConnections: ['google', 'facebook', 'linkedin'],
+    allowSignUp: false,
+
+    theme: {
+      // logo: 'https://example.com/logo.png',
+      primaryColor: '#31324F'
+    },
+
+    auth: {
+      redirectUrl: 'https://timesync-c310e.firebaseapp.com/create.html',
+      responseMode: 'form_post'
+    }
+  };
 
   var lock = new Auth0Lock(AUTH0_CLIENT_ID, AUTH0_DOMAIN);
 
