@@ -2,15 +2,15 @@ window.addEventListener('load', function() {
 
 
   var options = {
-    allowedConnections: ['google'],
+    // allowedConnections: ['google'],
     allowSignUp: false,
 
     theme: {
-      // logo: 'https://example.com/logo.png',
-      primaryColor: '#31324F'
+      primaryColor: 'blue'
     },
 
     auth: {
+      redirect: true,
       redirectUrl: 'https://timesync-c310e.firebaseapp.com/create.html',
       responseMode: 'form_post'
     }
