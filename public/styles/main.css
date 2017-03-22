@@ -54,6 +54,6 @@ main {
 }
 
 
-  .auth0-lock.auth0-lock .auth0-lock-header-bg {
-      background: #009688 !important;
-  }
+.auth0-lock.auth0-lock .auth0-lock-header-bg {
+    background: #009688 !important;
+}
