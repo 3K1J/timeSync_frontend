@@ -2,11 +2,16 @@ window.addEventListener('load', function() {
 
 
   var options = {
-    // allowedConnections: ['google'],
+    // allowedConnections: ['google', 'linkedin'],
     allowSignUp: false,
 
+    languageDictionary: {
+      title: 'Welcome!'
+    },
+
     theme: {
-      primaryColor: 'blue'
+      logo: './images/auth-logo.png',
+      primaryColor: '#009688'
     },
 
     auth: {
