@@ -5,12 +5,12 @@
     <ul class="right hide-on-med-and-down">
       <li><a href="./create.html" id="nickname">User Name</a></li>
       <li class="profile-img circle responsive-img"><img alt="avatar" id="avatar"></li>
-      <li><a class="waves-effect waves-light btn" type="submit" id="btn-logout">Sign Out</a></li>
+      <li><a class="waves-effect waves-light btn" type="submit" id="btn-logout-desktop">Sign Out</a></li>
     </ul>
     <ul class="side-nav" id="mobile-demo">
       <li><a href="./create.html" id="nickname">User Name</a></li>
       <li class="profile-img circle responsive-img"><img alt="avatar" id="avatar" ></li>
-      <li><a class="waves-effect waves-light btn" type="submit" id="btn-logout">Sign Out</a></li>
+      <li><a class="waves-effect waves-light btn" type="submit" id="btn-logout-mobile">Sign Out</a></li>
     </ul>
   </div>
 </nav>
@@ -18,11 +18,17 @@
 <script>
 
 // window.addEventListener('load', function() {
+  var btn_logout_desktop = document.getElementById('btn-logout-desktop');
 
-  var btn_logout = document.getElementById('btn-logout');
+  btn_logout_desktop.addEventListener('click', function() {
+    console.log("desktop");
+    logout();
+  });
 
-  btn_logout.addEventListener('click', function() {
-    console.log("something");
+  var btn_logout_mobile = document.getElementById('btn-logout-mobile');
+
+  btn_logout_mobile.addEventListener('click', function() {
+    console.log("mobile");
     logout();
   });
 
