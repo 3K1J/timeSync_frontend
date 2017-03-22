@@ -2,8 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>TimeSync</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
@@ -33,10 +32,11 @@
       </div>
     </div>
     <div class="row">
-      <div class="col s12 m10 l10 offset-m1 offset-l1">
+      <div class="col s10 m4 l4 offset-s1 offset-m4 offset-l4">
         <div class="row">
-          <div class="col s12 m6 l6 offset-m3 offset-l3">
-            <a class="waves-effect waves-light btn slack-btn"><img class="responsive-img btn-img" src="https://platform.slack-edge.com/img/sign_in_with_slack@2x.png"/></a>
+          <!-- <div class="col s12 m6 l6 offset-m3 offset-l3"> -->
+            <img alt="avatar" id="avatar" style="display:none;">
+            <a class="waves-effect waves-light btn-large" type="submit" id="btn-login" style="display:block; font-size: 20px;"><i class="material-icons right">send</i>Sign In</a>
           </div>
         </div>
       </div>
@@ -45,10 +45,16 @@
 
 
 
+
+
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" charset="utf-8"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.1.2/handlebars.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
   <script src="./node_modules/materialize-clockpicker/dist/js/materialize.clockpicker.js"></script>
+  <script src="https://cdn.auth0.com/js/lock/10.8/lock.min.js"></script>
+  <script src="./scripts/auth0-variables.js"></script>
+  <script src="./scripts/app.js"></script>
   <script src="./scripts/templates.js"></script>
   <script src="./scripts/main.js"></script>
   </body>
