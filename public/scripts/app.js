@@ -1,5 +1,10 @@
 window.addEventListener('load', function() {
 
+
+  var options = {
+
+  }
+
   var lock = new Auth0Lock(AUTH0_CLIENT_ID, AUTH0_DOMAIN);
 
   // buttons
@@ -15,7 +20,7 @@ window.addEventListener('load', function() {
   });
 
   lock.on("authenticated", function(authResult) {
-    lock.getProfile(authResult.idToken, function(error, profile) {
+    lock.getUserInfo(authResult.idToken, function(error, profile) {
       if (error) {
         // Handle error
         return;
