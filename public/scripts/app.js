@@ -20,12 +20,12 @@ window.addEventListener('load', function() {
   });
 
   lock.on("authenticated", function(authResult) {
-    lock.getProfile(authResult.idToken, function(error, profile) {
+    lock.getProfile(authResult.accessToken, function(error, profile) {
       if (error) {
         // Handle error
         return;
       }
-      localStorage.setItem('id_token', authResult.idToken);
+      localStorage.setItem('access_token', authResult.accessToken);
       // Display user information
       show_profile_info(profile);
     });
@@ -33,12 +33,13 @@ window.addEventListener('load', function() {
 
   //retrieve the profile:
   var retrieve_profile = function() {
-    var id_token = localStorage.getItem('id_token');
-    if (id_token) {
-      lock.getProfile(id_token, function (err, profile) {
+    var access_token = localStorage.getItem('access_token');
+    if (access_token) {
+      lock.getUserInfo(access_token, function (err, profile) {
         if (err) {
           return alert('There was an error getting the profile: ' + err.message);
         }
+
         // Display user information
         show_profile_info(profile);
       });
@@ -55,7 +56,7 @@ window.addEventListener('load', function() {
   };
 
   var logout = function() {
-    localStorage.removeItem('id_token');
+    localStorage.removeItem('access_token');
     window.location.href = "/";
   };
 
