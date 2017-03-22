@@ -20,7 +20,7 @@ window.addEventListener('load', function() {
   });
 
   lock.on("authenticated", function(authResult) {
-    lock.getUserInfo(authResult.idToken, function(error, profile) {
+    lock.getProfile(authResult.idToken, function(error, profile) {
       if (error) {
         // Handle error
         return;
