@@ -16,7 +16,7 @@ window.addEventListener('load', function() {
 
     auth: {
       redirect: true,
-      redirectUrl: 'https://timesync-c310e.firebaseapp.com/create.html',
+      redirectUrl: 'http://localhost:5000/create.html',
       responseMode: 'form_post'
     }
   };
@@ -57,7 +57,10 @@ window.addEventListener('load', function() {
         }
 
         // Display user information
-        show_profile_info(profile);
+        show_profile_info(profile).then(function(profile) {
+                  console.log(profile);
+        })
+
       });
     }
   };

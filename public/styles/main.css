@@ -30,7 +30,6 @@ Secondary: #009688 teal
 ------------------------
 */
 
-
 body {
   display: flex;
   min-height: 100vh;
@@ -41,19 +40,23 @@ main {
   flex: 1 0 auto;
 }
 
-
-
 .profile-img {
   padding: 10px;
-
 }
-
 
 .navbar-material .nav-wrapper .brand-logo img {
     height: 70px;
 }
 
+.auth0-lock.auth0-lock .auth0-lock-header-bg {
+    background: #009688 !important;
+}
 
-  .auth0-lock.auth0-lock .auth0-lock-header-bg {
-      background: #009688 !important;
-  }
+#btn-login {
+  display: block;
+  font-size: 26px;
+}
+
+.auth0-lock.auth0-lock .auth0-lock-header {
+  padding-top: 24px !important;
+}
