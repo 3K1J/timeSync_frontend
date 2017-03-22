@@ -42,17 +42,12 @@
           return alert('There was an error getting the profile: ' + err.message);
         }
         // Display user information
-        show_profile_info(profile)
+        
       })
     }
   }
 
-  var show_profile_info = function(profile) {
-    var avatar = document.getElementById('avatar');
-    document.getElementById('nickname').textContent = profile.nickname;
-    avatar.src = profile.picture;
-    avatar.style.display = "block";
-  };
+
 
   var logout = function() {
     localStorage.removeItem('access_token');

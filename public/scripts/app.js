@@ -13,11 +13,11 @@ window.addEventListener('load', function() {
       primaryColor: '#009688'
     },
 
-    auth: {
-      redirect: true,
-      redirectUrl: 'https://timesync-c310e.firebaseapp.com/create.html',
-      responseMode: 'form_post'
-    }
+    // auth: {
+    //   redirect: true,
+    //   redirectUrl: 'http://localhost:5000/create.html',
+    //   responseMode: 'form_post'
+    // }
   };
 
   var lock = new Auth0Lock(AUTH0_CLIENT_ID, AUTH0_DOMAIN, options);
@@ -37,8 +37,44 @@ window.addEventListener('load', function() {
       if (error) {
         return;
       }
-      localStorage.setItem('access_token', authResult.accessToken);
+
+      // $.ajax({
+      //     url : "/users/",
+      //     type: "POST",
+      //     data : {
+      //       name: profile.nickname,
+      //       email: profile.email
+      //     },
+      //     success: function(data)
+      //     {
+      //       console.log(data);
+      //
+      //     },
+      //     error: function (err)
+      //     {
+      //       console.log(err);
+      //     }
+      // });
+
+      localStorage.setItem('accessToken', authResult.accessToken);
+      localStorage.setItem('profile', JSON.stringify(profile));
+      window.location.href = "/create.html"
+      console.log(profile)
+
 
     });
   });
 });
+
+  // Verify that there's a token in localStorage
+
+  // var token = localStorage.getItem('accessToken');
+  // if (token) {
+  //   showLoggedIn();
+  // }
+  //
+  // // Display the user's profile
+  // function showLoggedIn() {
+  //   var profile = JSON.parse(localStorage.getItem('profile'));
+  //   document.getElementById('nick').textContent = profile.nickname;
+  // }
