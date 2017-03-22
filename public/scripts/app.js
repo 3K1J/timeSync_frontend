@@ -2,7 +2,7 @@ window.addEventListener('load', function() {
 
 
   var options = {
-    allowedConnections: ['google', 'facebook', 'linkedin'],
+    allowedConnections: ['google'],
     allowSignUp: false,
 
     theme: {
