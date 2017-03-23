@@ -1,22 +1,18 @@
 window.addEventListener('load', function() {
 
   var options = {
-    // allowedConnections: ['google', 'linkedin'],
-    allowSignUp: false,
 
+    allowSignUp: false,
     languageDictionary: {
       title: 'Welcome!'
     },
-
     theme: {
       logo: './images/auth-logo.png',
       primaryColor: '#009688'
     },
-
     // auth: {
     //   redirect: true,
-    //   redirectUrl: '/loading.html',
-    //
+    //   redirectUrl: '/loading.html'
     // }
   };
 
@@ -62,7 +58,7 @@ window.addEventListener('load', function() {
             console.log(err);
           }
       }).then(function() {
-        window.location.href = "/create.html"
+        window.location.href = "/profile.html"
       })
 
 
