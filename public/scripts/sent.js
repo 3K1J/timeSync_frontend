@@ -49,10 +49,11 @@ $(document).ready(() => {
   $(document).on('click', '#sendBack', function() {
     var sendObj = {}
     $('.votes').each(function() {
+      
       $this = $(this)
       if ($this.hasClass('greenColor')) {
-        sendObj.date_id = $this.find('.sendDate').attr('id')
-        sendObj.user_id = $('select').val()
+        sendObj.date_id = parseInt($this.find('.sendDate').attr('id'))
+        sendObj.user_id = parseInt($('select option:selected').attr('id'))
         $.post('https://time-synk.herokuapp.com/dates_users', sendObj)
         .then((data) => {
           console.log('sent');
@@ -60,5 +61,6 @@ $(document).ready(() => {
         console.log(sendObj);
       }
     })
+    $(this).prop('disabled', true)
   })
 })
