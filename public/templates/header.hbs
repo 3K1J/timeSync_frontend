@@ -1,5 +1,5 @@
 <nav class="navbar-material">
-  <div class="nav-wrapper indigo darken-4">
+  <div class="nav-wrapper indigo darken-3">
     <a href="./profile.html" class="brand-logo" id="nav-title"><img class="nav-logo" src="/images/nav-logo.png"/></a>
     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
     <ul class="right hide-on-med-and-down">
@@ -33,19 +33,13 @@
   });
 
   //retrieve the profile:
-  var retrieve_profile = function() {
+  function retrieveProfile() {
 
-    var access_token = localStorage.getItem('access_token');
     var user = localStorage.getItem('profile')
     var profile = JSON.parse(user)
 
-    // $('<img src="'+ profile.picture +'">').load(function() {
-    //   $(this).appendTo('#avatar1');
-    // });
-
     $('.profile-img1').append('<img src="' + profile.picture + '" class="circle responsive-img">');
     $('.profile-img2').append('<img src="' + profile.picture + '" class="circle " style="height: 140px; width: 140px;">');
-    // $('#avatar2').append(profile.picture)
     $('#nickname1').append(profile.name)
     $('#nickname2').append(profile.name)
   }
@@ -57,7 +51,21 @@
     window.location.href = "/";
   };
 
-  retrieve_profile()
+
+  function verifyUser() {
+
+    var access_token = localStorage.getItem('accessToken');
+    console.log(access_token);
+
+    if(access_token === null) {
+      window.location.href = "/";
+    }
+      retrieveProfile()
+  };
+
+  verifyUser()
+
+
 
 // });
 
