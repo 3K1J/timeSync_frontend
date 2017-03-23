@@ -3,6 +3,7 @@
   text-align: center;
   margin-bottom: 10px;
   font-size: 14pt;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 .hero {
@@ -26,12 +27,16 @@
 }
 
 #sentMain {
+  height: 100%;
+  background-color: lightgrey;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
 }
 
 .vote {
+  font-family: 'Josefin Sans', sans-serif;
   color: white;
   text-align: center;
   background: none;
@@ -47,6 +52,7 @@
 }
 
 .sendBackButton {
+  font-family: 'Josefin Sans', sans-serif;
   margin-top: 20px;
   height: 40px;
   border: none;
@@ -61,7 +67,8 @@
 }
 
 select {
-  height: 30px;
-  width: 200px;
+  font-family: 'Josefin Sans', sans-serif;
+  height: 40px;
+  width: 80px;
   bor
 }
