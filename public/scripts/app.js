@@ -38,28 +38,31 @@ window.addEventListener('load', function() {
         return;
       }
 
-      // $.ajax({
-      //     url : "/users/",
-      //     type: "POST",
-      //     data : {
-      //       name: profile.nickname,
-      //       email: profile.email
-      //     },
-      //     success: function(data)
-      //     {
-      //       console.log(data);
-      //
-      //     },
-      //     error: function (err)
-      //     {
-      //       console.log(err);
-      //     }
-      // });
-
+      console.log(profile.name)
       localStorage.setItem('accessToken', authResult.accessToken);
       localStorage.setItem('profile', JSON.stringify(profile));
-      window.location.href = "/create.html"
-      console.log(profile)
+
+      $.ajax({
+          url : "https://time-synk.herokuapp.com/users",
+          type: "POST",
+          data: {
+            name: profile.name,
+            email: profile.email
+          },
+          success: function(data)
+          {
+            console.log(data)
+          },
+          error: function (err)
+          {
+            console.log(err);
+          }
+      }).then(function() {
+        window.location.href = "/create.html"
+      })
+
+
+
 
 
     });
