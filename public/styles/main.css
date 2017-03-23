@@ -57,3 +57,18 @@ main {
 .auth0-lock.auth0-lock .auth0-lock-header-bg {
     background: #009688 !important;
 }
+
+.profile-img1 {
+  padding-top: 10px;
+  height: 44px;
+  width: 44px;
+}
+
+.profile-img2 {
+  padding-top: 10px;
+  display:inline-block;
+}
+
+#nickname2 {
+  font-size: 20px;
+}

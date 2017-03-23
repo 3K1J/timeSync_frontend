@@ -3,13 +3,13 @@
     <a href="./profile.html" class="brand-logo" id="nav-title"><img class="nav-logo" src="/images/nav-logo.png"/></a>
     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
     <ul class="right hide-on-med-and-down">
-      <li><a href="./create.html" id="nickname">User Name</a></li>
-      <li class="profile-img circle responsive-img"><img alt="avatar" id="avatar"></li>
+      <li><a href="./create.html" id="nickname1"></a></li>
+      <li class="profile-img1"></li>
       <li><a class="waves-effect waves-light btn" type="submit" id="btn-logout-desktop">Sign Out</a></li>
     </ul>
-    <ul class="side-nav" id="mobile-demo">
-      <li><a href="./create.html" id="nickname">User Name</a></li>
-      <li class="profile-img circle responsive-img"><img alt="avatar" id="avatar" ></li>
+    <ul class="side-nav" id="mobile-demo" style="text-align:center;">
+      <li><a href="./create.html" id="nickname2"></a></li>
+      <li class="profile-img2"></li>
       <li><a class="waves-effect waves-light btn" type="submit" id="btn-logout-mobile">Sign Out</a></li>
     </ul>
   </div>
@@ -36,15 +36,18 @@
   var retrieve_profile = function() {
 
     var access_token = localStorage.getItem('access_token');
-    if (access_token) {
-      lock.getUserInfo(access_token, function (err, profile) {
-        if (err) {
-          return alert('There was an error getting the profile: ' + err.message);
-        }
-        // Display user information
+    var user = localStorage.getItem('profile')
+    var profile = JSON.parse(user)
 
-      })
-    }
+    // $('<img src="'+ profile.picture +'">').load(function() {
+    //   $(this).appendTo('#avatar1');
+    // });
+
+    $('.profile-img1').append('<img src="' + profile.picture + '" class="circle responsive-img">');
+    $('.profile-img2').append('<img src="' + profile.picture + '" class="circle " style="height: 140px; width: 140px;">');
+    // $('#avatar2').append(profile.picture)
+    $('#nickname1').append(profile.name)
+    $('#nickname2').append(profile.name)
   }
 
 
