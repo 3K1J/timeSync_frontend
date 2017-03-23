@@ -136,7 +136,7 @@ $(document).ready(() => {
     .then(function (data) {
       var id = data[0].id
       eventID = id
-      $('#linkRead').text('https://time-synk.herokuapp.com/sent.html?id='+id)
+      $('#linkRead').text('https://timesync-c310e.firebaseapp.com/sent.html?id='+id)
       $('#submitCreateButton').hide()
       $('#saveButton').show()
 
@@ -216,6 +216,12 @@ $(document).ready(() => {
             }
           });
         }
+      })
+    })
+    $.get('https://time-synk.herokuapp.com/events/'+eventID+'/users', function(invData) {
+      var invArrDB = []
+      data.forEach((e) => {
+        invArrDB.push(e.userID)
       })
     })
   })
