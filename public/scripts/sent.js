@@ -29,11 +29,13 @@ $(document).ready(() => {
         $('#sentMain').append($('<select>'))
         $('select').append($('<option>', {id: 'test', text: 'Choose your Name', selected: 'selected'}))
         $('#sentMain').append($('<button>', {class: 'sendBackButton', id: 'sendBack'}).text('SEND RESPONSE'))
-        // $.get('events_users/eventID/id', function(data) {
-        //   for (i = 0; i < data.length; i++) {
-        //     $('select').append($('<option>', {text: data[i].name}))
-        //   }
-        // })
+        $.get('https://time-synk.herokuapp.com/events/'+id+'/users', function(data) {
+          console.log(data);
+          for (i = 0; i < data.length; i++) {
+            $('select').append($('<option>', {text: data[i].userName, id: data[i].userID}))
+            $('select').material_select();
+          }
+        })
         $('select').material_select();
       })
     })
@@ -51,6 +53,10 @@ $(document).ready(() => {
       if ($this.hasClass('greenColor')) {
         sendObj.date_id = $this.find('.sendDate').attr('id')
         sendObj.user_id = $('select').val()
+        $.post('https://time-synk.herokuapp.com/dates_users', sendObj)
+        .then((data) => {
+          console.log('sent');
+        })
         console.log(sendObj);
       }
     })
