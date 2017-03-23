@@ -1,6 +1,6 @@
 <nav class="navbar-material">
-  <div class="nav-wrapper indigo darken-3">
-    <a href="./profile.html" class="brand-logo" id="nav-title"><img class="nav-logo" src="/images/nav-logo.png"/></a>
+  <div class="nav-wrapper indigo">
+    <a href="#" class="brand-logo" id="nav-title"><img class="nav-logo" src="/images/nav-logo.png"/></a>
     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
     <ul class="right hide-on-med-and-down">
       <li><a href="./create.html" id="nickname1"></a></li>
@@ -39,7 +39,7 @@
     var profile = JSON.parse(user)
 
     $('.profile-img1').append('<img src="' + profile.picture + '" class="circle responsive-img">');
-    $('.profile-img2').append('<img src="' + profile.picture + '" class="circle " style="height: 140px; width: 140px;">');
+    $('.profile-img2').append('<img src="' + profile.picture + '" class="circle">');
     $('#nickname1').append(profile.name)
     $('#nickname2').append(profile.name)
   }
