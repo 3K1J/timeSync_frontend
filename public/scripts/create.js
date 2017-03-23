@@ -1,8 +1,11 @@
 $(document).ready(() => {
 
+  var eventID = 0
+
   createTimesForm()
   createPeopleForm()
   createDescriptionForm()
+  $('#saveButton').hide()
 
   $('.desc').hide()
   $('.invitee').hide()
@@ -40,13 +43,11 @@ $(document).ready(() => {
   }
 
   function createDescriptionForm() {
-    $('#inputForm').append($('<input>', {type: 'text', name: 'invitee', placeholder: 'Create your Event Title', class: 'desc', id: 'desc'}))
+    $('#inputForm').append($('<input>', {type: 'text', name: 'invitee', placeholder: 'Create your Event Title', class: 'desc', id: 'title'}))
     $('#inputForm').append($('<input>', {type: 'text', name: 'desc', placeholder: 'Create your Event Description', class: 'desc', id: 'desc'}))
     $('#mainCreate').append($('<button>', {class: 'submitCreateButton', id: "submitCreateButton"}).text('CREATE LINK'))
-  }
-
-  function flairError(ele) {
-
+    $('#mainCreate').append($('<button>', {class: 'submitCreateButton', id: "saveButton"}).text('SAVE EVENT CHANGES'))
+    $('#mainCreate').append($('<div>', {class: 'linkRead', id: "linkRead"}).text('Test'))
   }
 
   $(document).on('click', '#invitesToggle', function() {
@@ -95,25 +96,21 @@ $(document).ready(() => {
     //   var toggle = true
     // }
     if (date && start && end) {
-      var counter = $('div > .timeChoice').length
-      $('#chosenTimes').append($('<div>', {class: 'timeChoice', id: 'timeChoice' + counter}))
-      $('#timeChoice'+counter).append($('<div>').text($('#date').val()))
-      $('#timeChoice' + counter).append($('<div>', {class: 'containCenterColumn startEnd', id: 'startEndContainerChoice' + counter}))
-      $('#timeChoice'+counter).append($('<button>', {class: 'deleteButton', id: 'deleteButton' + counter}).text('X'))
-      $('#startEndContainerChoice'+counter).append($('<div>').text($('#start').val()))
-      $('#startEndContainerChoice'+counter).append($('<div>').text($('#end').val()))
-
+      $('#chosenTimes').append($('<div>', {class: 'timeChoice', id: 'timeChoice'}))
+      $('.timeChoice').last().append($('<div>', {class: 'sendDate'}).text($('#date').val()))
+      $('.timeChoice').last().append($('<div>', {class: 'timeDiv containCenterColumn startEnd', id: 'startEndContainerChoice'}))
+      $('.timeChoice').last().append($('<button>', {class: 'deleteButton', id: 'deleteButton'}).text('X'))
+      $('.timeDiv').last().append($('<div>', {class: 'sendStart', id: 'sendStart'}).text($('#start').val()))
+      $('.timeDiv').last().append($('<div>', {class: 'sendEnd', id: 'sendEnd'}).text($('#end').val()))
     }
   })
 
   $(document).on('click', '.deleteButton', function () {
-    id = $(this).attr('id').slice(12)
-    $('#timeChoice'+id).remove()
+    $(this).parent().remove()
   })
 
   $(document).on('click', '.invDeleteButton', function () {
-    id = $(this).attr('id').slice(15)
-    $('#invChoice'+id).remove()
+    $(this).parent().remove()
   })
 
   $(document).on('click', '#personCreateButton', function () {
@@ -123,7 +120,61 @@ $(document).ready(() => {
     }
     var counter = $('div > .invChoice').length
     $('#chosenPeople').append($('<div>', {class: 'invChoice', id: 'invChoice' + counter}))
-    $('#invChoice'+counter).append($('<div>').text($('#invitee').val()))
+    $('#invChoice'+counter).append($('<div>', {class: 'inv', id: 'inv'+counter}).text($('#invitee').val()))
     $('#invChoice'+counter).append($('<button>', {class: 'invDeleteButton', id: 'invDeleteButton' + counter}).text('X'))
   })
+
+  $(document).on('click', '#saveButton', function() {
+    $.get('https://time-synk.herokuapp.com/dates/' + eventID, function (data) {
+      var dbArr = []
+      data.forEach((e) => {
+        dbArr.push(e.id)
+      })
+      var currentArr = []
+
+      console.log(dbArr);
+    })
+  })
+
+  $(document).on('click', '#submitCreateButton', function () {
+
+    var eventSend = {}
+    eventSend.body = $('#desc').val()
+    eventSend.title = $('#title').val()
+    eventSend.user_id = 22
+    $.post('https://time-synk.herokuapp.com/events', eventSend)
+    .then(function (data) {
+      var id = data[0].id
+      eventID = id
+      $('#linkRead').text('https://time-synk.herokuapp.com/sent.html?id='+id)
+      $('#submitCreateButton').hide()
+      $('#saveButton').show()
+
+      $('.timeChoice').each(function() {
+        $this = $(this)
+        var dateSend = {}
+        dateSend.event_id = id
+        dateSend.date = $this.find('.sendDate').text()
+        dateSend.start = $this.find('.sendStart').text()
+        dateSend.end = $this.find('.sendEnd').text()
+        $.post('https://time-synk.herokuapp.com/dates', dateSend)
+         .then(function(dataDate) {
+          
+         })
+      })
+
+      $('.invChoice').each(function() {
+        $this = $(this)
+        var invSend = {}
+        invSend.name = $this.find('.inv').text()
+        invSend.email = ''
+        $.post('https://time-synk.herokuapp.com/users', invSend)
+          .then(function(dataInv) {
+
+        })
+      })
+    })
+  })
+
+
 });
