@@ -113,7 +113,7 @@
   margin-top: 20px;
   border: 2px solid darkgrey;
   text-align: center;
-  height: auto;
+  height: 25px;
   width: 340px;
   background-color: white;
 }
@@ -125,4 +125,15 @@
   justify-content: space-around;
   align-items: center;
   margin-top: 5px;
+}
+
+.errorMessage {
+  font-family: 'Josefin Sans', sans-serif;
+  margin-top: 20px;
+  border: 2px solid lightgrey;
+  text-align: center;
+  height: 25px;
+  width: 340px;
+  background-color: lightgrey;
+  color: tomato;
 }
