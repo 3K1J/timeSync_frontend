@@ -48,6 +48,19 @@ main {
 
 }
 
+.navbar-material{
+  height: 70px;
+}
+
+.nav{
+  line-height: 64px;
+}
+
+#nav-title {
+  height:70px;
+}
+
+
 
 .navbar-material .nav-wrapper .brand-logo img {
     height: 70px;
@@ -67,6 +80,12 @@ main {
 .profile-img2 {
   padding-top: 10px;
   display:inline-block;
+
+}
+
+#nickname1 {
+  height: 70px;
+  font-size: 14px;
 }
 
 #nickname2 {
