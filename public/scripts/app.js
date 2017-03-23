@@ -51,7 +51,10 @@ window.addEventListener('load', function() {
           success: function(user)
           {
             localStorage.setItem('accessToken', authResult.accessToken);
-            profile.id = user.id
+            profile.id = user[0].id
+            console.log(profile);
+            console.log(profile.id);
+            console.log(user[0]);
             localStorage.setItem('profile', JSON.stringify(profile));
           },
           error: function (err)
