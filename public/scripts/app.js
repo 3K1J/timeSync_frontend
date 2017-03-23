@@ -15,8 +15,8 @@ window.addEventListener('load', function() {
 
     // auth: {
     //   redirect: true,
-    //   redirectUrl: 'http://localhost:5000/create.html',
-    //   responseMode: 'form_post'
+    //   redirectUrl: '/loading.html',
+    //
     // }
   };
 
@@ -39,8 +39,7 @@ window.addEventListener('load', function() {
       }
 
       console.log(profile.name)
-      localStorage.setItem('accessToken', authResult.accessToken);
-      localStorage.setItem('profile', JSON.stringify(profile));
+
 
       $.ajax({
           url : "https://time-synk.herokuapp.com/users",
@@ -49,9 +48,11 @@ window.addEventListener('load', function() {
             name: profile.name,
             email: profile.email
           },
-          success: function(data)
+          success: function(user)
           {
-            console.log(data)
+            localStorage.setItem('accessToken', authResult.accessToken);
+            profile.user_id = user.id
+            localStorage.setItem('profile', JSON.stringify(profile));
           },
           error: function (err)
           {
