@@ -19,15 +19,15 @@ $(document).ready(() => {
       $('#DC'+i).append($('<div>', {class: 'responseBoard ', id: 'RB'+i}))
       $('#RB'+i).append($('<div>', {class: 'responseHead'}).text('Responses'))
       $('#BD'+i).append($('<div>', {class: 'bestHead'}).text('Ideal Date'))
+
+      $.get('https://time-synk.herokuapp.com/events/'+data[i].id+'/stats', function(stats) {
+        console.log(stats[0].count);
+        console.log(i);
+        $('#BD'+(i-1)).append($('<div>', {class: 'bestBody body'}).text(stats[0].date+' '+stats[0].start+' to '+stats[0].end))
+        $('#RB'+(i-1)).append($('<div>', {class: 'responseBody body'}).text(stats[0].count+' of 18'))
+      })
     }
   })
-
-
-  $.get('https://time-synk.herokuapp.com/events/'+data[i].id+'/stats', function(stats) {
-    console.log(stats);
-  //   $('#BD'+i).append($('<div>', {class: 'bestBody body'}).text(stats[0].date+' '+stats[0].start+' to '+stats[0].end))
-  //   $('#RB'+i).append($('<div>', {class: 'responseBody body'}).text(stats[0].count+' of '))
-  // })
 
 
 
