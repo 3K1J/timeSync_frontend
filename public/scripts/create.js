@@ -148,7 +148,7 @@ $(document).ready(() => {
       .then(function (data) {
         var id = data[0].id
         eventID = id
-        $('#linkRead').text('https://timesync-c310e.firebaseapp.com/sent  .html?id='+id)
+        $('#linkRead').text('https://timesync-c310e.firebaseapp.com/sent.html?id='+id)
         $('#submitCreateButton').hide()
         $('#saveButton').show()
 
