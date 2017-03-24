@@ -1,5 +1,8 @@
 $(document).ready(() => {
 
+  var profile = localStorage.getItem('profile')
+  var user = JSON.parse(profile)
+
   var eventID = 0
 
   createTimesForm()
@@ -48,24 +51,28 @@ $(document).ready(() => {
     $('#mainCreate').append($('<div>', {class: 'linkRead', id: "linkRead"}).text('Link to be sent'))
     $('#mainCreate').append($('<button>', {class: 'submitCreateButton', id: "submitCreateButton"}).text('CREATE LINK'))
     $('#mainCreate').append($('<button>', {class: 'submitCreateButton', id: "saveButton"}).text('SAVE EVENT CHANGES'))
+    $('#mainCreate').append($('<div>', {class: 'errorMessage', id: 'messageBoard'}).text(''))
   }
 
   $(document).on('click', '#invitesToggle', function() {
     $('.times').hide()
     $('.invitee').show()
     $('.desc').hide()
+    $('*').removeClass('error')
   })
 
   $(document).on('click', '#timesToggle', function() {
     $('.times').show()
     $('.invitee').hide()
     $('.desc').hide()
+    $('*').removeClass('error')
   })
 
   $(document).on('click', '#descriptionToggle', function() {
     $('.times').hide()
     $('.invitee').hide()
     $('.desc').show()
+    $('*').removeClass('error')
   })
 
   $(document).on('click', '#timeCreateButton', function() {
@@ -117,11 +124,14 @@ $(document).ready(() => {
     var person = $('#invitee').val()
     if (!person) {
       $('#personDiv').addClass('error')
+    } else {
+      var counter = $('div > .invChoice').length
+      $('#chosenPeople').append($('<div>', {class: 'invChoice', id: 'invChoice' + counter}))
+      $('#invChoice'+counter).append($('<div>', {class: 'inv', id: 'inv'+counter}).text($('#invitee').val()))
+      $('#invChoice'+counter).append($('<button>', {class: 'invDeleteButton', id: 'invDeleteButton' + counter}).text('X'))
+      $('#personDiv').removeClass('error')
+      $('#invitee').val('')
     }
-    var counter = $('div > .invChoice').length
-    $('#chosenPeople').append($('<div>', {class: 'invChoice', id: 'invChoice' + counter}))
-    $('#invChoice'+counter).append($('<div>', {class: 'inv', id: 'inv'+counter}).text($('#invitee').val()))
-    $('#invChoice'+counter).append($('<button>', {class: 'invDeleteButton', id: 'invDeleteButton' + counter}).text('X'))
   })
 
 
@@ -131,12 +141,12 @@ $(document).ready(() => {
     var eventSend = {}
     eventSend.body = $('#desc').val()
     eventSend.title = $('#title').val()
-    eventSend.user_id = 22
+    eventSend.user_id = user.id
     $.post('https://time-synk.herokuapp.com/events', eventSend)
     .then(function (data) {
       var id = data[0].id
       eventID = id
-      $('#linkRead').text('https://timesync-c310e.firebaseapp.com/sent.html?id='+id)
+      $('#linkRead').text('https://timesync-c310e.firebaseapp.com/sent  .html?id='+id)
       $('#submitCreateButton').hide()
       $('#saveButton').show()
 

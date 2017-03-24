@@ -8,7 +8,7 @@ $(document).ready(() => {
 
   function createChoices() {
     $.get('https://time-synk.herokuapp.com/events/' + id, function(data) {
-      $('#sentMain').append($('<div>', {class: 'greeting', id: 'greeting'}).text('USER has asked for you to outline your availability across the below times/dates.'))
+      $('#sentMain').append($('<div>', {class: 'greeting', id: 'greeting'}).text('Please outline your availability across the below times/dates.'))
       $('#sentMain').append($('<div>', {class: 'greeting hero', id: 'title'}).text(data.title))
       $('#sentMain').append($('<div>', {class: 'greeting', id: 'desctiption'}).text(data.body))
       $('#sentMain').append($('<div>', {class: 'voteContainerWhole', id: 'votes'}))
@@ -47,9 +47,10 @@ $(document).ready(() => {
   })
 
   $(document).on('click', '#sendBack', function() {
+
     var sendObj = {}
     $('.votes').each(function() {
-      
+
       $this = $(this)
       if ($this.hasClass('greenColor')) {
         sendObj.date_id = parseInt($this.find('.sendDate').attr('id'))
@@ -63,4 +64,5 @@ $(document).ready(() => {
     })
     $(this).prop('disabled', true)
   })
+
 })
