@@ -18,12 +18,16 @@ $(document).ready(() => {
       $('#EC'+i).append($('<div>', {class: 'bestDate', id: 'BD'+i}))
       $('#DC'+i).append($('<div>', {class: 'responseBoard ', id: 'RB'+i}))
       $('#RB'+i).append($('<div>', {class: 'responseHead'}).text('Responses'))
-      $('#RB'+i).append($('<div>', {class: 'responseBody body'}).text('2 of 14'))
       $('#BD'+i).append($('<div>', {class: 'bestHead'}).text('Ideal Date'))
-      $('#BD'+i).append($('<div>', {class: 'bestBody body'}).text('03-04-17 08:00am - 09:00am'))
     }
-    $.get('/events/eventID/'+data.id)
   })
+
+
+  $.get('https://time-synk.herokuapp.com/events/'+data[i].id+'/stats', function(stats) {
+    console.log(stats);
+  //   $('#BD'+i).append($('<div>', {class: 'bestBody body'}).text(stats[0].date+' '+stats[0].start+' to '+stats[0].end))
+  //   $('#RB'+i).append($('<div>', {class: 'responseBody body'}).text(stats[0].count+' of '))
+  // })
 
 
 

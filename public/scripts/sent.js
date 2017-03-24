@@ -47,22 +47,25 @@ $(document).ready(() => {
   })
 
   $(document).on('click', '#sendBack', function() {
+    if ($('select option:selected').attr('id') === 'test') {
+      $('#sendBack').text('Please Enter a name')
+    } else {
+      var sendObj = {}
+      $('.votes').each(function() {
 
-    var sendObj = {}
-    $('.votes').each(function() {
-
-      $this = $(this)
-      if ($this.hasClass('greenColor')) {
-        sendObj.date_id = parseInt($this.find('.sendDate').attr('id'))
-        sendObj.user_id = parseInt($('select option:selected').attr('id'))
-        $.post('https://time-synk.herokuapp.com/dates_users', sendObj)
-        .then((data) => {
-          console.log('sent');
-        })
-        console.log(sendObj);
-      }
-    })
-    $(this).prop('disabled', true)
+        $this = $(this)
+        if ($this.hasClass('greenColor')) {
+          sendObj.date_id = parseInt($this.find('.sendDate').attr('id'))
+          sendObj.user_id = parseInt($('select option:selected').attr('id'))
+          $.post('https://time-synk.herokuapp.com/dates_users', sendObj)
+          .then((data) => {
+            console.log('sent');
+          })
+          console.log(sendObj);
+        }
+      })
+      $('#sendBack').text('Sent. Thanks.')
+      $(this).prop('disabled', true)
+    }
   })
-
 })
