@@ -1,5 +1,8 @@
 $(document).ready(() => {
 
+  var profile = localStorage.getItem('profile')
+  var user = JSON.parse(profile)
+
   var eventID = 0
 
   createTimesForm()
@@ -138,7 +141,7 @@ $(document).ready(() => {
     var eventSend = {}
     eventSend.body = $('#desc').val()
     eventSend.title = $('#title').val()
-    eventSend.user_id = 22
+    eventSend.user_id = user.id
     $.post('https://time-synk.herokuapp.com/events', eventSend)
     .then(function (data) {
       var id = data[0].id
